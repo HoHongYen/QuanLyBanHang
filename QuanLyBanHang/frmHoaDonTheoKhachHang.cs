@@ -66,7 +66,7 @@ namespace QuanLyBanHang
                 this.cbMaKH.DisplayMember = "TenCty";
                 this.cbMaKH.ValueMember = "MaKH";
 
- 
+ // copy begin
                 //Vận chuyển dữ liệu lên DataTable dtHoaDon
                 daNhanVien = new SqlDataAdapter("SELECT MaNV, (Ho + ' ' + Ten) AS HoTen FROM NhanVien", conn);
                 dtNhanVien = new DataTable();
@@ -82,7 +82,7 @@ namespace QuanLyBanHang
                 (dgvHoaDon.Columns["MaNV"] as DataGridViewComboBoxColumn).DataSource = dtNhanVien;
                 (dgvHoaDon.Columns["MaNV"] as DataGridViewComboBoxColumn).DisplayMember = "HoTen";
                 (dgvHoaDon.Columns["MaNV"] as DataGridViewComboBoxColumn).ValueMember = "MaNV";
-
+          // copy end
 
 
                 //Vận chuyển dữ liệu lên DataTable dtKhachHang

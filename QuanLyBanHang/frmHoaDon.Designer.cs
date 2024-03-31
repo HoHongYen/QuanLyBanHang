@@ -47,6 +47,11 @@
             this.txtNgayNhanHang = new System.Windows.Forms.TextBox();
             this.txtNgayLapHD = new System.Windows.Forms.TextBox();
             this.txtMaHD = new System.Windows.Forms.TextBox();
+            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKH = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.MaNV = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.NgayLapHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayNhanHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.pnlThongTinHD.SuspendLayout();
             this.SuspendLayout();
@@ -123,11 +128,20 @@
             // 
             // dgvHoaDon
             // 
+            this.dgvHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaHD,
+            this.MaKH,
+            this.MaNV,
+            this.NgayLapHD,
+            this.NgayNhanHang});
             this.dgvHoaDon.Location = new System.Drawing.Point(26, 100);
             this.dgvHoaDon.Name = "dgvHoaDon";
+            this.dgvHoaDon.RowHeadersWidth = 51;
             this.dgvHoaDon.Size = new System.Drawing.Size(740, 196);
             this.dgvHoaDon.TabIndex = 7;
+            this.dgvHoaDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellContentClick);
             // 
             // pnlThongTinHD
             // 
@@ -151,7 +165,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(264, 54);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 13);
+            this.label5.Size = new System.Drawing.Size(108, 16);
             this.label5.TabIndex = 14;
             this.label5.Text = "Ngày nhận hàng:";
             // 
@@ -160,7 +174,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(26, 50);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 13);
+            this.label4.Size = new System.Drawing.Size(117, 16);
             this.label4.TabIndex = 13;
             this.label4.Text = "Ngày lập hóa đơn:";
             // 
@@ -169,7 +183,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(525, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 13);
+            this.label3.Size = new System.Drawing.Size(89, 16);
             this.label3.TabIndex = 14;
             this.label3.Text = "Mã nhân viên:";
             // 
@@ -178,7 +192,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(264, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.Size = new System.Drawing.Size(101, 16);
             this.label2.TabIndex = 13;
             this.label2.Text = "Mã khách hàng:";
             // 
@@ -187,7 +201,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(28, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.Size = new System.Drawing.Size(81, 16);
             this.label1.TabIndex = 12;
             this.label1.Text = "Mã hóa đơn:";
             // 
@@ -196,7 +210,7 @@
             this.cbMaNV.FormattingEnabled = true;
             this.cbMaNV.Location = new System.Drawing.Point(619, 10);
             this.cbMaNV.Name = "cbMaNV";
-            this.cbMaNV.Size = new System.Drawing.Size(121, 21);
+            this.cbMaNV.Size = new System.Drawing.Size(121, 24);
             this.cbMaNV.TabIndex = 11;
             // 
             // cbMaKH
@@ -204,29 +218,64 @@
             this.cbMaKH.FormattingEnabled = true;
             this.cbMaKH.Location = new System.Drawing.Point(355, 11);
             this.cbMaKH.Name = "cbMaKH";
-            this.cbMaKH.Size = new System.Drawing.Size(121, 21);
+            this.cbMaKH.Size = new System.Drawing.Size(121, 24);
             this.cbMaKH.TabIndex = 10;
             // 
             // txtNgayNhanHang
             // 
             this.txtNgayNhanHang.Location = new System.Drawing.Point(355, 47);
             this.txtNgayNhanHang.Name = "txtNgayNhanHang";
-            this.txtNgayNhanHang.Size = new System.Drawing.Size(121, 20);
+            this.txtNgayNhanHang.Size = new System.Drawing.Size(121, 22);
             this.txtNgayNhanHang.TabIndex = 9;
             // 
             // txtNgayLapHD
             // 
             this.txtNgayLapHD.Location = new System.Drawing.Point(137, 47);
             this.txtNgayLapHD.Name = "txtNgayLapHD";
-            this.txtNgayLapHD.Size = new System.Drawing.Size(100, 20);
+            this.txtNgayLapHD.Size = new System.Drawing.Size(100, 22);
             this.txtNgayLapHD.TabIndex = 9;
             // 
             // txtMaHD
             // 
             this.txtMaHD.Location = new System.Drawing.Point(137, 12);
             this.txtMaHD.Name = "txtMaHD";
-            this.txtMaHD.Size = new System.Drawing.Size(100, 20);
+            this.txtMaHD.Size = new System.Drawing.Size(100, 22);
             this.txtMaHD.TabIndex = 0;
+            // 
+            // MaHD
+            // 
+            this.MaHD.DataPropertyName = "MaHD";
+            this.MaHD.HeaderText = "Mã HĐ";
+            this.MaHD.MinimumWidth = 6;
+            this.MaHD.Name = "MaHD";
+            // 
+            // MaKH
+            // 
+            this.MaKH.DataPropertyName = "MaKH";
+            this.MaKH.HeaderText = "Tên Cty";
+            this.MaKH.MinimumWidth = 6;
+            this.MaKH.Name = "MaKH";
+            // 
+            // MaNV
+            // 
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.HeaderText = "Mã NV";
+            this.MaNV.MinimumWidth = 6;
+            this.MaNV.Name = "MaNV";
+            // 
+            // NgayLapHD
+            // 
+            this.NgayLapHD.DataPropertyName = "NgayLapHD";
+            this.NgayLapHD.HeaderText = "Ngày Lập HĐ";
+            this.NgayLapHD.MinimumWidth = 6;
+            this.NgayLapHD.Name = "NgayLapHD";
+            // 
+            // NgayNhanHang
+            // 
+            this.NgayNhanHang.DataPropertyName = "NgayNhanHang";
+            this.NgayNhanHang.HeaderText = "Ngày Nhận Hàng";
+            this.NgayNhanHang.MinimumWidth = 6;
+            this.NgayNhanHang.Name = "NgayNhanHang";
             // 
             // frmHoaDon
             // 
@@ -271,7 +320,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-
-
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHD;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MaKH;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MaNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayLapHD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhanHang;
     }
 }
