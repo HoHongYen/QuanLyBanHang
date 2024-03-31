@@ -59,6 +59,7 @@
             // dgvHoaDon
             // 
             this.dgvHoaDon.AccessibleName = "";
+            this.dgvHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaHD,
@@ -79,7 +80,6 @@
             this.MaHD.HeaderText = "Mã HĐ";
             this.MaHD.MinimumWidth = 6;
             this.MaHD.Name = "MaHD";
-            this.MaHD.Width = 125;
             // 
             // MaKH
             // 
@@ -89,7 +89,6 @@
             this.MaKH.Name = "MaKH";
             this.MaKH.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.MaKH.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.MaKH.Width = 125;
             // 
             // MaNV
             // 
@@ -97,7 +96,6 @@
             this.MaNV.HeaderText = "Mã NV";
             this.MaNV.MinimumWidth = 6;
             this.MaNV.Name = "MaNV";
-            this.MaNV.Width = 125;
             // 
             // NgayLapHD
             // 
@@ -105,7 +103,6 @@
             this.NgayLapHD.HeaderText = "Ngày Lập HĐ";
             this.NgayLapHD.MinimumWidth = 6;
             this.NgayLapHD.Name = "NgayLapHD";
-            this.NgayLapHD.Width = 125;
             // 
             // NgayNhanHang
             // 
@@ -113,7 +110,6 @@
             this.NgayNhanHang.HeaderText = "Ngày Nhận Hàng";
             this.NgayNhanHang.MinimumWidth = 6;
             this.NgayNhanHang.Name = "NgayNhanHang";
-            this.NgayNhanHang.Width = 125;
             // 
             // txtTongSoHD
             // 
