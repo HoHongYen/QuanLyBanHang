@@ -236,7 +236,7 @@ namespace QuanLyBanHang
                     cmd.CommandType = CommandType.Text;
                     //Lệnh Insert InTo
                     cmd.CommandText = System.String.Concat("Insert into KhachHang values(" + "'" + 
-                        this.txtMaKH.Text.ToString() + "','" + this.txtTenCty.Text.ToString() + "','" +
+                        this.txtMaKH.Text.ToString() + "',N'" + this.txtTenCty.Text.ToString() + "',N'" +
                         this.txtDiachi.Text.ToString() + "','" + this.cbThanhPho.SelectedValue.ToString() + "','" +
                         this.txtDienthoai.Text.ToString() + "')");
                     cmd.CommandType = CommandType.Text;
@@ -266,8 +266,8 @@ namespace QuanLyBanHang
                     //MaKH hiện hành
                     string strMAKH = dgvKhachHang.Rows[r].Cells[0].Value.ToString();
                     //Câu lệnh SQL
-                    cmd.CommandText = System.String.Concat("Update KhachHang Set TenCty='"+
-                        this.txtTenCty.Text.ToString() + "', Diachi ='" + 
+                    cmd.CommandText = System.String.Concat("Update KhachHang Set TenCty=N'"+
+                        this.txtTenCty.Text.ToString() + "', Diachi =N'" + 
                         this.txtDiachi.Text.ToString() + "', ThanhPho ='" + this.cbThanhPho.SelectedValue.ToString()
                         + "', DienThoai ='" + this.txtDienthoai.Text.ToString() + "', MaKH ='" + this.txtMaKH.Text.ToString() + 
                         "' where MaKH ='" + strMAKH + "'");
