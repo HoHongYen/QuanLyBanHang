@@ -236,11 +236,9 @@ namespace QuanLyBanHang
             this.btnThem.Enabled = false;
             this.btnSua.Enabled = false;
             this.btnXoa.Enabled = false;
-            this.btnXoa.Enabled = false;
             this.btnThoat.Enabled = false;
             //Đưa con trỏ đến TextField txtMaKH
             this.txtMaHD.Focus();
-
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
