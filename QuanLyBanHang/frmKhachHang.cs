@@ -246,9 +246,9 @@ namespace QuanLyBanHang
                     //Thông báo
                     MessageBox.Show("Đã thêm xong!");
                 }
-                catch (SqlException)
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!");
+                    MessageBox.Show("Không thêm được. Lỗi rồi!" + ex.ToString());
                 }
             }//if
 

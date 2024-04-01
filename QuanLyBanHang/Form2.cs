@@ -30,9 +30,9 @@ namespace QuanLyBanHang
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            DialogResult traloi = MessageBox.Show("Chắc không?", "Trả lời", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult traloi = MessageBox.Show("Chắc không?", "Trả lời", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (traloi == DialogResult.OK)
+            if (traloi == DialogResult.Yes)
                 Application.Exit();
         }
 
