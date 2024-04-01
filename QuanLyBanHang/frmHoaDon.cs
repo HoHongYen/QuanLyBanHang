@@ -191,13 +191,22 @@ namespace QuanLyBanHang
             this.btnSua.Enabled = false;
             this.btnXoa.Enabled = false;
             this.btnThoat.Enabled = false;
+
+            //insert begin
+            //Vận chuyển dữ liệu lên DataTable dtNhanVien dùng cho combobox
+            daNhanVien = new SqlDataAdapter("SELECT MaNV, (Ho + ' ' + Ten) AS HoTen FROM NhanVien", conn);
+            dtNhanVien = new DataTable();
+            dtNhanVien.Clear();
+            daNhanVien.Fill(dtNhanVien);
+            //insert end
+
             //Đưa dữ liệu lên ComboBox
             this.cbMaKH.DataSource = dtKhachHang;
             this.cbMaKH.DisplayMember = "TenCty";
             this.cbMaKH.ValueMember = "MaKH";
 
             this.cbMaNV.DataSource = dtNhanVien;
-            this.cbMaNV.DisplayMember = "Ten";
+            this.cbMaNV.DisplayMember = "HoTen";
             this.cbMaNV.ValueMember = "MaNV";
 
             //Đưa con trỏ đến TextField txtMaHD
@@ -208,13 +217,22 @@ namespace QuanLyBanHang
         {
             //Kích hoạt biến Sửa
             Them = false;
+
+            //insert begin
+            //Vận chuyển dữ liệu lên DataTable dtNhanVien dùng cho combobox
+            daNhanVien = new SqlDataAdapter("SELECT MaNV, (Ho + ' ' + Ten) AS HoTen FROM NhanVien", conn);
+            dtNhanVien = new DataTable();
+            dtNhanVien.Clear();
+            daNhanVien.Fill(dtNhanVien);
+            //insert end
+
             //Đưa dữ liệu lên 2 ComboBox
             this.cbMaKH.DataSource = dtKhachHang;
             this.cbMaKH.DisplayMember = "TenCty";
             this.cbMaKH.ValueMember = "MaKH";
 
             this.cbMaNV.DataSource = dtNhanVien;
-            this.cbMaNV.DisplayMember = "Ten";
+            this.cbMaNV.DisplayMember = "HoTen";
             this.cbMaNV.ValueMember = "MaNV";
 
             //Cho phép thao tác trên Panel
@@ -225,8 +243,8 @@ namespace QuanLyBanHang
             this.txtMaHD.Text = dgvHoaDon.Rows[r].Cells[0].Value.ToString();
             this.cbMaKH.SelectedValue = dgvHoaDon.Rows[r].Cells[1].Value.ToString();
             this.cbMaNV.SelectedValue = dgvHoaDon.Rows[r].Cells[2].Value.ToString();
-            this.txtNgayLapHD.Text = dgvHoaDon.Rows[r].Cells[3].Value.ToString();
-            this.txtNgayNhanHang.Text = dgvHoaDon.Rows[r].Cells[4].Value.ToString();
+            this.txtNgayLapHD.Text = String.Format("{0:MM/dd/yyyy}", dgvHoaDon.Rows[r].Cells[3].Value);
+            this.txtNgayNhanHang.Text = String.Format("{0:MM/dd/yyyy}", dgvHoaDon.Rows[r].Cells[4].Value); 
 
             //Cho thao tác trên các nút Lưu / Hủy / Panel
             this.btnLuu.Enabled = true;
@@ -318,6 +336,36 @@ namespace QuanLyBanHang
         }
 
         private void dgvHoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtMaHD_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbMaKH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNgayLapHD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbMaKH1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
