@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 
 namespace QuanLyBanHang
 {
@@ -222,6 +223,27 @@ namespace QuanLyBanHang
 
         }
 
+        private string checkTP(string TP)
+        {
+            string idTP = "000";
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT ThanhPho FROM ThanhPho WHERE TenThanhPho = @TenThanhPho"; // Use parameterized query
+                cmd.Parameters.AddWithValue("@TenThanhPho", TP); // Add parameter
+
+                using (var sqlDataReader = cmd.ExecuteReader())
+                {
+                    if (sqlDataReader.Read()) 
+                    {
+                        idTP = sqlDataReader["ThanhPho"].ToString();
+                    }
+                } 
+            } 
+            return idTP;
+        }
+
         private void btnLuu_Click(object sender, EventArgs e)
         {
             //Mở kết nối
@@ -234,10 +256,11 @@ namespace QuanLyBanHang
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
+
                     //Lệnh Insert InTo
                     cmd.CommandText = System.String.Concat("Insert into KhachHang values(" + "'" + 
                         this.txtMaKH.Text.ToString() + "',N'" + this.txtTenCty.Text.ToString() + "',N'" +
-                        this.txtDiachi.Text.ToString() + "','" + this.cbThanhPho.SelectedValue.ToString() + "','" +
+                        this.txtDiachi.Text.ToString() + "','" + checkTP(this.cbThanhPho.Text.ToString()) + "','" +
                         this.txtDienthoai.Text.ToString() + "')");
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
@@ -246,9 +269,9 @@ namespace QuanLyBanHang
                     //Thông báo
                     MessageBox.Show("Đã thêm xong!");
                 }
-                catch (SqlException ex)
+                catch (SqlException)
                 {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!" + ex.ToString());
+                    MessageBox.Show("Không thêm được. Lỗi rồi!");
                 }
             }//if
 
@@ -268,7 +291,7 @@ namespace QuanLyBanHang
                     //Câu lệnh SQL
                     cmd.CommandText = System.String.Concat("Update KhachHang Set TenCty=N'"+
                         this.txtTenCty.Text.ToString() + "', Diachi =N'" + 
-                        this.txtDiachi.Text.ToString() + "', ThanhPho ='" + this.cbThanhPho.SelectedValue.ToString()
+                        this.txtDiachi.Text.ToString() + "', ThanhPho ='" + checkTP(this.cbThanhPho.Text.ToString())
                         + "', DienThoai ='" + this.txtDienthoai.Text.ToString() + "', MaKH ='" + this.txtMaKH.Text.ToString() + 
                         "' where MaKH ='" + strMAKH + "'");
                     //Cập nhật
