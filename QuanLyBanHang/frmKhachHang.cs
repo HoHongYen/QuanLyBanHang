@@ -248,7 +248,21 @@ namespace QuanLyBanHang
         {
             //Mở kết nối
             conn.Open();
-            if(Them)
+
+            // Check null or empty data
+            string maKH = this.txtMaKH.Text.ToString();
+            string tenCty = this.txtTenCty.Text.ToString();
+            string maTP = checkTP(this.cbThanhPho.Text.ToString());
+
+            if (maKH.Length * tenCty.Length * maTP.Length == 0)
+            {
+                string errorMessage = Them ? "Không thêm được. Lỗi rồi!" : "Không sửa được. Lỗi rồi!";
+                MessageBox.Show(errorMessage);
+                conn.Close();
+                return;
+            }
+
+            if (Them)
             {
                 try
                 {
