@@ -96,7 +96,7 @@ namespace QuanLyBanHang
                 //Thay đổi độ rộng cột
                 dgvHoaDon.AutoResizeColumns();
 
-                // dinh dang ngay 
+                // dinh dang ngay
                 dgvHoaDon.Columns["NgayLapHD"].DefaultCellStyle.Format = "Custom";
                 dgvHoaDon.Columns["NgayLapHD"].DefaultCellStyle.Format = "MM/dd/yyyy";
 
