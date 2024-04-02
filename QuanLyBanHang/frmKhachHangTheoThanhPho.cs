@@ -58,11 +58,20 @@ namespace QuanLyBanHang
 
                 //Xóa các đối tượng trong Panel
                 //Đưa dữ liệu lên ComboBox
-                this.cbThanhPho.DataSource = dtThanhPho;
-                this.cbThanhPho.DisplayMember = "TenThanhPho";
-                this.cbThanhPho.ValueMember = "ThanhPho";
-    
-     
+
+                // remove begin
+                //this.cbThanhPho.DataSource = dtThanhPho;
+                //this.cbThanhPho.DisplayMember = "TenThanhPho";
+                //this.cbThanhPho.ValueMember = "ThanhPho";
+                // remove end
+
+                // insert begin
+                //  Đưa dữ liệu lên ComboBox trong DataGridView   
+                (dgvKhachHang.Columns["ThanhPho"] as DataGridViewComboBoxColumn).DataSource = dtThanhPho;
+                (dgvKhachHang.Columns["ThanhPho"] as DataGridViewComboBoxColumn).DisplayMember = "TenThanhPho";
+                (dgvKhachHang.Columns["ThanhPho"] as DataGridViewComboBoxColumn).ValueMember = "ThanhPho";
+                // insert end
+
                 //Vận chuyển dữ liệu lên DataTable dtKhachHang
                 daKhachHang = new SqlDataAdapter("SELECT * FROM Khachhang", conn);
                 dtKhachHang = new DataTable();
