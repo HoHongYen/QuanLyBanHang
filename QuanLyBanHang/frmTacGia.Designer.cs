@@ -35,17 +35,19 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(24, 23);
+            this.richTextBox1.Location = new System.Drawing.Point(32, 28);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(309, 118);
+            this.richTextBox1.Size = new System.Drawing.Size(411, 144);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(258, 147);
+            this.btnThoat.Location = new System.Drawing.Point(344, 181);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(75, 23);
+            this.btnThoat.Size = new System.Drawing.Size(100, 28);
             this.btnThoat.TabIndex = 1;
             this.btnThoat.Text = "Trở về";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -53,11 +55,12 @@
             // 
             // frmTacGia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 181);
+            this.ClientSize = new System.Drawing.Size(476, 223);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.richTextBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmTacGia";
             this.Text = "Thông tin về Tác giả";
             this.ResumeLayout(false);
