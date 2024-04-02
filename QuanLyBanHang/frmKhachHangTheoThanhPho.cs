@@ -59,11 +59,9 @@ namespace QuanLyBanHang
                 //Xóa các đối tượng trong Panel
                 //Đưa dữ liệu lên ComboBox
 
-                // remove begin
-                //this.cbThanhPho.DataSource = dtThanhPho;
-                //this.cbThanhPho.DisplayMember = "TenThanhPho";
-                //this.cbThanhPho.ValueMember = "ThanhPho";
-                // remove end
+                this.cbThanhPho.DataSource = dtThanhPho;
+                this.cbThanhPho.DisplayMember = "TenThanhPho";
+                this.cbThanhPho.ValueMember = "ThanhPho";
 
                 // insert begin
                 //  Đưa dữ liệu lên ComboBox trong DataGridView   
