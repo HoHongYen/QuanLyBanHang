@@ -96,6 +96,13 @@ namespace QuanLyBanHang
                 //Thay đổi độ rộng cột
                 dgvHoaDon.AutoResizeColumns();
 
+                // dinh dang ngay 
+                dgvHoaDon.Columns["NgayLapHD"].DefaultCellStyle.Format = "Custom";
+                dgvHoaDon.Columns["NgayLapHD"].DefaultCellStyle.Format = "MM/dd/yyyy";
+
+                dgvHoaDon.Columns["NgayNhanHang"].DefaultCellStyle.Format = "Custom";
+                dgvHoaDon.Columns["NgayNhanHang"].DefaultCellStyle.Format = "MM/dd/yyyy";
+
                 //Đếm số dòng trong datatable dtKhachHang
                 //int soKH dtKhachHang.Rows.Count();
                 int soHD = Convert.ToInt32(dtHoaDon.Compute("COUNT(MAHD)", string.Empty));
