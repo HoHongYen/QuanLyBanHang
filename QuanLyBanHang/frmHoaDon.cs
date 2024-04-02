@@ -87,7 +87,13 @@ namespace QuanLyBanHang
                 (dgvHoaDon.Columns["MaNV"] as DataGridViewComboBoxColumn).DataSource = dtNhanVien;
                 (dgvHoaDon.Columns["MaNV"] as DataGridViewComboBoxColumn).DisplayMember = "HoTen";
                 (dgvHoaDon.Columns["MaNV"] as DataGridViewComboBoxColumn).ValueMember = "MaNV";
-     // insert end
+    // insert end
+
+                dgvHoaDon.Columns["NgayLapHD"].DefaultCellStyle.Format = "Custom";
+                dgvHoaDon.Columns["NgayLapHD"].DefaultCellStyle.Format = "MM/dd/yyyy";
+
+                dgvHoaDon.Columns["NgayNhanHang"].DefaultCellStyle.Format = "Custom";
+                dgvHoaDon.Columns["NgayNhanHang"].DefaultCellStyle.Format = "MM/dd/yyyy";
 
 
                 //Xóa các đối tượng trong Panel
@@ -306,7 +312,7 @@ namespace QuanLyBanHang
                     cmd.CommandText = System.String.Concat("Update HoaDon Set MaHD='"+
                         this.txtMaHD.Text.ToString() + "', MaKH ='" + 
                         this.cbMaKH.SelectedValue.ToString() + "', MaNV ='" + this.cbMaNV.SelectedValue.ToString() 
-                        + "', NgayLapHD ='" + this.txtNgayLapHD.Text.ToString() + "', MaKH ='" + this.txtNgayNhanHang.Text.ToString() + 
+                        + "', NgayLapHD ='" + this.txtNgayLapHD.Text.ToString() + "', NgayNhanHang ='" + this.txtNgayNhanHang.Text.ToString() + 
                         "' where MaHD ='" + strMAHD + "'");
                     //Cập nhật
                     cmd.CommandType = CommandType.Text;
@@ -316,9 +322,9 @@ namespace QuanLyBanHang
                     //Thông báo
                     MessageBox.Show("Đã sửa xong!");
                 }
-                catch(SqlException)
+                catch(SqlException ex)
                 {
-                    MessageBox.Show("Không sửa được. Lỗi rồi!");
+                    MessageBox.Show("Không sửa được. Lỗi rồi!" + ex.ToString());
                 }
             }
             //Đóng kết nối

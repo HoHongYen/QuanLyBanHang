@@ -84,7 +84,7 @@ namespace QuanLyBanHang
 
                 //Đếm số dòng trong datatable dtKhachHang
                 //int soKH dtKhachHang.Rows.Count();
-                int soKH = Convert.ToInt32(dtKhachHang.Compute("COUNT(MAKH)", string.Empty)) + 1;
+                int soKH = Convert.ToInt32(dtKhachHang.Compute("COUNT(MAKH)", string.Empty));
                 //MessageBox.Show(soKH.ToString(), "Số dòng");
                 this.txtTongSoKH.Text = soKH.ToString();
                 
@@ -114,7 +114,7 @@ namespace QuanLyBanHang
                 dgvKhachHang.AutoResizeColumns();
 
                 //Đếm số dòng trong datatable dtKhachHang
-                int soKH = Convert.ToInt32(dtKhachHang.Compute("COUNT(MAKH)", string.Empty)) + 1;
+                int soKH = Convert.ToInt32(dtKhachHang.Compute("COUNT(MAKH)", string.Empty));
                 this.txtTongSoKH.Text = soKH.ToString();
 
             }
